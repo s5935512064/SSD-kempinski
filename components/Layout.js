@@ -19,8 +19,8 @@ const Layout = ({ children }) => {
                 exit="exit" // Exit state (used later) to variants.exit
                 transition={{ type: 'linear', duration: 1 }} // Set the transition to linear
             >
-                <div className="min-h-screen w-full bg-[#010F2A] relative overflow-hidden">
-                    <div className="w-full min-h-screen bg-[url('/assets/manifestobg-f.png')]  bg-contain bg-no-repeat bg-fixed absolute opacity-20 bg-right"></div>
+                <div className="min-h-screen w-full bg-[#010F2A] relative ">
+                    <div className="w-full h-screen bg-[url('/assets/manifestobg-f.png')]  bg-contain bg-no-repeat bg-fixed fixed opacity-10 bg-right"></div>
                     {children}
                 </div>
             </motion.main>

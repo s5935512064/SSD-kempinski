@@ -4,7 +4,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Libre: ['Libre Caslon Text', 'sans-serif'],
+      },
+    },
     screens: {
       'xs': '460px',
       'sm': '640px',
