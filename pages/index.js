@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Layout from "../components/Layout"
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useState, useEffect } from "react";
 import { Autoplay } from "@fancyapps/ui/dist/carousel.autoplay.esm.js";
 import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
@@ -35,8 +36,11 @@ export default function Home() {
         </div>
         {/* Header */}
         <section id="hero" className="lg:p-10 max-w-7xl w-full top-20 relative max-h-[700px] flex flex-col  items-center mt-20">
-          <p className="text-center text-white w-4/5"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas quae quo sit iure ratione corrupti minus nisi dolore nulla animi quisquam a quos ipsum tenetur ipsam unde, quod doloremque velit?</p>
-          <p className="text-white text-3xl font-semibold">Stay Classy</p>
+          <p className="text-center text-white w-3/5"> The Residences at Sindhorn Kempinski Hotel Bangkok is an integral part of the inspired Sindhorn Village development, creates a new benchmark for unique cosmopolitan living in the heart of Bangkok. Situated on charismatic Langsuan Road, it harmonizes environmental-friendliness, peacefulness and verdant green surroundings with exceptional amenities.</p>
+          <fieldset className="w-[300px] border-t border-[#B5A191]  text-lg font-medium ">
+            <legend className="pl-4 font-Libre text-3xl text-white text-right">Stay Classy</legend>
+          </fieldset>
+
           <div className="w-full max-h-[500px] mt-20 relative z-10  ">
             <video
               loop
@@ -56,7 +60,7 @@ export default function Home() {
         {  /* Concept */}
         <section className="min-h-[600px] w-full bg-[#f3f2f2] relative flex justify-center items-center md:p-10">
           <div className="max-w-7xl w-full h-full  !overflow-hidden px-4 md:m-10 z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full mt-24 md:mt-56 gap-3 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 w-full h-full mt-24 md:mt-56 gap-3 items-center ">
               <div className="md:mr-10 text-center md:text-left">
                 <fieldset className="border-t-2 border-solid border-[#B5A191]  w-full">
                   <legend className="text-3xl inline-flex items-center font-Libre pr-2 ">
@@ -64,7 +68,9 @@ export default function Home() {
                     Concept
                   </legend>
                   <p className="mb-5">Connecting nature and the city, Sindhorn Village is a new community that integrates modern architecture with an extension to Lumphini Park, the enormous leafy-green expanse in the centre of Bangkok. Under the concept Living in the Park, Sindhorn Village incorporates large areas of park and gardens, providing a living, breathing natural environment. Sindhorn Kempinski Hotel Bangkok is in the centre of this community, a place where guests can seek and find splendour and refinement, an ease of living and comfort for body and soul.</p>
-                  <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                  <Link href="/concept">
+                    <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                  </Link>
                 </fieldset>
 
               </div>
@@ -106,7 +112,9 @@ export default function Home() {
               <div className="row-start-1 md:col-start-2 md:ml-10 flex flex-col justify-center items-center text-center md:text-left md:items-start">
                 <p className="font-Libre text-3xl">Residence</p>
                 <p className="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis optio error modi, beatae earum in ad harum labore voluptate quia nostrum, mollitia incidunt quae repellat dicta quam eos magnam aliquam!</p>
-                <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                <Link href="/residence">
+                  <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                </Link>
               </div>
             </div>
           </div>
@@ -131,7 +139,9 @@ export default function Home() {
                       <p className="text-center flex items-center h-2/3 ">
                         {juice.slice(0, 160).concat('...')}
                       </p>
-                      <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                      <Link href="/service">
+                        <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                      </Link>
                     </div>
                   </div>
                   <div className="w-full h-96 bg-white  relative overflow-hidden">
@@ -141,7 +151,9 @@ export default function Home() {
                       <p className="text-center flex items-center h-2/3 ">
                         {gym.slice(0, 160).concat('...')}
                       </p>
-                      <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                      <Link href="/service">
+                        <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                      </Link>
                     </div>
                   </div>
                   <div className="w-full h-96 bg-white  relative overflow-hidden">
@@ -151,7 +163,9 @@ export default function Home() {
                       <p className="text-center flex items-center h-2/3 ">
                         {yoka.slice(0, 160).concat('...')}
                       </p>
-                      <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                      <Link href="/service">
+                        <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
+                      </Link>
                     </div>
                   </div>
 

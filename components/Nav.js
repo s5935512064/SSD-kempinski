@@ -24,7 +24,7 @@ const Nav = () => {
 
     return (
         <>
-            <div className="fixed top-0 h-14 md:bg-[#010F2A] md:bg-opacity-70 w-full text-center text-white flex items-center justify-center !z-50 ">
+            <div className="fixed top-0 h-10 md:bg-[#010F2A]  w-full text-center text-white flex items-center justify-center !z-50 ">
 
                 <div className="max-w-7xl w-full hidden md:flex items-center justify-center absolute h-full z-10 " >
 
@@ -44,9 +44,14 @@ const Nav = () => {
                 </div>
 
                 <div className="max-w-7xl w-full flex items-center justify-end absolute h-full px-4">
+
+
+
                     <Link href="/register">
 
-                        <button className="bg-[#B5A191] px-4 py-2 w-fit font-medium z-20">REGISTER</button>
+                        <button className="hover:text-white hover:bg-[#B5A191] duration-200 px-2  w-fit md:text-[#B5A191] z-20 text-base border border-[#B5A191] text-[15px] bg-[#B5A191] text-white md:bg-transparent mt-5 md:mt-0">
+                            <span> REGISTER </span>
+                        </button>
                     </Link>
 
                 </div>
@@ -64,7 +69,7 @@ const Nav = () => {
 
                 <div id="mobile-menu" className={navbarOpen ? "menu-overlay open md:hidden" : "menu-overlay md:hidden"} >
                     <div className="absolute bg-[url('/assets/manifestobg.png')]  bg-left-bottom w-full bg-no-repeat h-full bg-contain opacity-10 -translate-x-20 translate-y-[450px]" />
-                    <div className="overlay-info mt-56">
+                    <div className="overlay-info mt-56 z-10">
                         {/* <img src="/assets/logo.svg" alt="logo" className="w-32 h-32 object-contain !z-50" /> */}
 
                         <div className="space-y-1 flex h-full justify-center flex-col mt-56">

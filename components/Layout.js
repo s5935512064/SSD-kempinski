@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
                 transition={{ type: 'linear', duration: 1 }} // Set the transition to linear
             >
                 <div className="min-h-screen w-full bg-[#010F2A] relative ">
-                    <div className="w-full h-screen bg-[url('/assets/manifestobg-f.png')]  bg-contain bg-no-repeat bg-fixed fixed opacity-10 bg-right"></div>
+                    <div className="w-full h-screen bg-[url('/assets/manifestobg-f.png')]  bg-contain bg-no-repeat bg-fixed fixed opacity-20 bg-right"></div>
                     {children}
                 </div>
             </motion.main>
