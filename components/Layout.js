@@ -17,13 +17,13 @@ const Layout = ({ children }) => {
         initial="hidden" // Set the initial state to variants.hidden
         animate="enter" // Animated state to variants.enter
         exit="exit" // Exit state (used later) to variants.exit
-        transition={{ type: "linear", duration: 1 }} // Set the transition to linear
+        transition={{ type: "spring", duration: 1.5 }} // Set the transition to linear
       >
-        <div className="min-h-screen w-full bg-[#F5F1EA] relative ">
+        <div className="min-h-screen w-full  relative  ">
           {children}
         </div>
       </motion.main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

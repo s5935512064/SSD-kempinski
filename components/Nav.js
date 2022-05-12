@@ -42,15 +42,15 @@ const Nav = () => {
 
   return (
     <>
-      <div className="fixed top-0 h-10  w-full  !z-50 flex justify-center ">
+      <div className="fixed top-0 h-16  w-full  !z-50 flex justify-center i ">
         <div className="max-w-7xl w-full hidden md:flex items-center relative  h-full ml-5">
-          <div className="menu scale-125  absolute -translate-y-2 z-30">
+          <div className="menu scale-125  absolute translate-y-1 z-30">
             <button
               onMouseOver={handleMouseIn}
               onMouseOut={handleMouseOut}
               id="hamburgerBtn2"
               className="menu-link"
-              // onClick={handleToggle}
+            // onClick={handleToggle}
             >
               <span className="menu-icon">
                 <span className="menu-line menu-line-1 !bg-[#B6A694]"></span>
@@ -64,7 +64,7 @@ const Nav = () => {
         <div
           className={classNames(
             hover ? "opacity-100" : "opacity-0 delay-[3000ms]",
-            " w-full h-10 bg-[#010F2A] flex items-center justify-center absolute duration-200  z-20"
+            " w-full h-16 bg-[#010F2A] flex items-center justify-center absolute duration-200  z-20"
           )}
         >
           {listMenu.map((item, index) => (

@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        kingsCaslon: ["kings_caslonregular", "sans-serif"],
         Libre: ["Libre Caslon Text", "sans-serif"],
         Heleness: ["helenehessregular", "sans-serif"],
       },
