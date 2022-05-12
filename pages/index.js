@@ -1,39 +1,113 @@
+<<<<<<< HEAD
 import Head from 'next/head'
 import Layout from "../components/Layout"
 import Image from 'next/image'
 import Link from 'next/link'
+=======
+import Head from "next/head";
+import Layout from "../components/Layout";
+import Footer from "../components/Footer";
+import Link from 'next/link';
+import Image from "next/image";
+>>>>>>> dev
 import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
 import { Autoplay } from "@fancyapps/ui/dist/carousel.autoplay.esm.js";
 import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
 
 Carousel.Plugins.Autoplay = Autoplay;
 Fancybox.defaults.ScrollLock = false;
 
-const juice = "Enjoy an instant health kick with a freshly blended juice delivered by the Juice Butler, power-packed with superfoods and full of nutritious ingredients to make sure that the body gets all the vital greens to thrive. Every day, we offer for our guests to sample a different refreshing blend, designed with specific health benefits in mind."
-
-const gym = "Maintain a workout routine without the hassle of planning for it. We have created a solution of providing the essential workout gear for guests who want to continue their fitness regime but might not have the right attire. Guests can request the entire set of shorts, T-shirt, sports shoes and new socks or just individual items. After use, with the exception of the socks as guests can keep them, all items undergo an intensive hot-water washing process, and shoes go through disinfection. Now there is no more excuse to skip a workout."
-
-const yoka = "Your wellness is at the heart of what we do. A pre-arrival wellness consultation is conducted by our highly trained Wellness Concierge team and takes place via email or over the phone. During the consultation, you will be asked a number of questions to better understand and identify your lifestyle and wellbeing areas that may need additional attention and support. After the assessment and review of your health goals, we will create a personalised, goal-oriented wellness plan based on your particular needs. During your stay at the hotel, our professional team will assist and empower you to achieve those goals."
-
 export default function Home() {
-  useEffect(() => {
-    setTimeout(() => {
-      const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
-        friction: 0.96,
-        center: true,
-        Autoplay: {
-          timeout: 1000,
-          hoverPause: true,
-        },
-      }, 2000);
-    })
-  });
+  var settings = {
+    speed: 1400,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+    infinite: true,
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    cssEase: "linear",
+  };
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const mainCarousel = new Carousel(
+  //       document.querySelector("#mainCarousel"),
+  //       {
+  //         friction: 0.96,
+  //         center: true,
+  //         Autoplay: {
+  //           timeout: 1000,
+  //           hoverPause: true,
+  //         },
+  //       },
+  //       2000
+  //     );
+  //   });
+  // });
   return (
     <Layout>
-      <div className="h-full w-full relative flex flex-col justify-center items-center !overflow-hidden">
-        <div id="logo" className="hidden lg:flex max-w-7xl w-full h-full absolute  p-5">
-          <img src="/assets/logo.svg" alt="logo" className="w-24 h-24 object-contain !z-50" />
+      <section
+        id="hero"
+        className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden"
+      >
+        <Slider {...settings} className="!w-full !h-screen overflow-hidden">
+          <div>
+            <img
+              src="/assets/home/hero1.jpg"
+              alt="hero1"
+              className="object-cover w-full h-full object-center"
+            />
+          </div>
+          <div>
+            <img
+              src="/assets/home/hero2.jpg"
+              alt="hero2"
+              className="object-cover w-full h-full object-bottom"
+            />
+          </div>
+          <div>
+            <img
+              src="/assets/home/hero3.jpg"
+              alt="hero3"
+              className="object-cover w-full h-full object-center"
+            />
+          </div>
+          {/* <div className="w-full h-screen bg-[url('/assets/home/hero2.jpg')] bg-cover bg-no-repeat bg-center  ">
+            2
+          </div>
+          <div className="w-full h-screen bg-[url('/assets/home/hero3.jpg')] bg-cover bg-no-repeat bg-center ">
+            3
+          </div> */}
+        </Slider>
+        <div className="w-full h-full bg-gradient-to-b from-[#010F2A] absolute opacity-75 " />
+        <div className="max-w-7xl h-full w-full flex flex-col items-center justify-center absolute translate-y-10">
+          <img
+            src="/assets/logo.svg"
+            alt="logo"
+            className="object-contain w-44 h-44"
+          />
+          <p className="text-[150px] font-Heleness  text-white">
+            CL<span className="text-[100px] align-text-top">A</span>SSY
+          </p>
+          <p className="text-white text-xl -translate-y-12 font-kingsCaslon">
+            is luxury but humble
+          </p>
+          <p className="font-kingsCaslon text-center text-white text-2xl bg-[#D9CDC1]/10 backdrop-blur-sm p-5 w-full ">
+            The Residences at Sindhorn Kempinski Hotel Bangkok <br />
+            <span className="text-xl">
+              creates a new benchmark for unique cosmopolitan living in the
+              heart of Bangkok. <br />
+              harmonizes environmental-friendliness,
+              <br />
+              peacefulness and verdant green surroundings with <br />
+              exceptional amenities.
+            </span>
+          </p>
         </div>
+<<<<<<< HEAD
         {/* Header */}
         <section id="hero" className="lg:p-10 max-w-7xl w-full top-20 relative max-h-[700px] flex flex-col  items-center mt-20">
           <p className="text-center text-white w-3/5"> The Residences at Sindhorn Kempinski Hotel Bangkok is an integral part of the inspired Sindhorn Village development, creates a new benchmark for unique cosmopolitan living in the heart of Bangkok. Situated on charismatic Langsuan Road, it harmonizes environmental-friendliness, peacefulness and verdant green surroundings with exceptional amenities.</p>
@@ -72,28 +146,42 @@ export default function Home() {
                     <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
                   </Link>
                 </fieldset>
+=======
+      </section>
 
-              </div>
+      <section id="sylabus" className="snap-start h-screen w-full bg-[url('/assets/paper.jpg')] bg-cover bg-no-repeat bg-fixed relative ">
+        <div className="w-full h-full bg-[#F5F1EA]/50 absolute bg-[url('/assets/manifestobg-f.png')] bg-contain bg-right bg-no-repeat flex flex-col justify-between items-center ">
+          <div className="max-w-7xl w-full flex flex-col justify-center items-center">
 
-              <div className="w-full h-full">
-                <Image
-                  src="/assets/facilities1.png"
-                  alt="concept"
-                  width="500"
-                  height="350"
-                  objectFit="contain"
-                  layout="responsive"
+            <Link href="/residence">
+>>>>>>> dev
 
-                />
-              </div>
+              <p className="text-[150px] font-Heleness  text-[#B6A694] pt-32 cursor-pointer">
+                R<span className="text-[90px] align-text-top">E</span>
+                SID
+                <span className="text-[90px] align-text-top">E</span>NCE
+              </p>
+            </Link>
 
-            </div>
-          </div>
-          <div className="absolute w-full h-full bg-[url('/assets/manifestobg.png')]  bg-contain bg-no-repeat bg-fixed opacity-50" />
+            <Link href="/gallery">
 
-        </section>
-        {/* End Concept */}
+              <p className="text-[150px] font-Heleness  text-[#B6A694] cursor-pointer">
+                G<span className="text-[90px] align-text-top">A</span>
+                LL
+                <span className="text-[90px] align-text-top">E</span>RY
+              </p>
+            </Link>
 
+            <Link href="/service">
+
+              <p className="text-[150px] font-Heleness  text-[#B6A694] cursor-pointer">
+                S<span className="text-[90px] align-text-top">E</span>
+                RV
+                <span className="text-[90px] align-text-top">I</span>CE
+              </p>
+            </Link>
+
+<<<<<<< HEAD
         {/* Residence */}
         <section className="max-h-[600px] w-full  relative flex justify-center items-center p-4 md:p-10 ">
           <div className="max-w-7xl w-full h-full bg-white shadow overflow-hidden p-4 md:p-10 z-10">
@@ -244,40 +332,17 @@ export default function Home() {
 
               <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
             </div>
+=======
+>>>>>>> dev
 
           </div>
-
-
-        </section>
-
-        {/* end Galler */}
-
-        {/* Contact */}
-        <section className="max-h-[600px] w-full  bg-[#f3f2f2] relative flex justify-center items-center p-4 md:p-10 ">
-          <div className="max-w-7xl w-full h-full relative p-4 md:p-10 z-10">
-            <div className="grid w-full h-full grid-cols-2 gap-3">
-              <div className="w-full h-full relative ">
-                <iframe className="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.710909883244!2d100.5413388153292!3d13.735944301360343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ed9a7ecb2ad%3A0x30c6a65f0f9ed6ab!2sThe%20Residences%20at%20Sindhorn%20Kempinski%20Hotel%20Bangkok!5e0!3m2!1sth!2sth!4v1651562244653!5m2!1sth!2sth" width="600" height="450" style={{ border: "0" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
-              </div>
-              <div className="ml-5">
-                <div className="w-full h-[250px] mb-5">
-                  <img src="/assets/facilities2.png" alt="mapp" className="object-cover w-full h-full object-center" />
-                </div>
-                <p className="font-Libre text-3xl ">Location</p>
-                <p className="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat excepturi similique non pariatur deserunt quod totam voluptatem sequi, eum eligendi voluptate iure repellendus placeat accusamus saepe amet odit! Quam, voluptatibus.</p>
-                <button className="w-fit px-3 py-2 bg-[#B5A191] text-white shadow ">Discover</button>
-              </div>
-
-            </div>
+          <div className=" w-full  flex justify-end items-end">
+            <Footer />
           </div>
-          <div className="absolute w-full h-full bg-[url('/assets/manifestobg.png')]  bg-contain bg-no-repeat bg-fixed  opacity-50" />
-
-        </section>
-
-        {/* End Contact */}
+        </div>
+      </section>
 
 
-      </div >
-    </Layout >
-  )
+    </Layout>
+  );
 }
