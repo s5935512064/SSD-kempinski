@@ -27,5 +27,8 @@
     "eslint-config-next": "12.1.5",
     "postcss": "^8.4.12",
     "tailwindcss": "^3.0.24"
+  },
+  "optionalDependencies": {
+    "@next/swc-linux-x64-gnu": "12.1.5"
   }
 }
