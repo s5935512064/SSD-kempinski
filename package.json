@@ -10,12 +10,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^4.0.26",
-<<<<<<< HEAD
-    "aos": "^3.0.0-beta.6",
-    "flexmasonry": "^0.2.3",
-=======
     "debounce": "^1.2.1",
->>>>>>> dev
     "framer-motion": "^6.3.3",
     "next": "12.1.5",
     "next-compose-plugins": "^2.2.1",
