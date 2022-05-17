@@ -1,5 +1,12 @@
 import Layout from "../components/Layout";
+import React, { useState, useEffect } from "react";
+import Footer from "../components/Footer";
+import { Link, animateScroll as scroll, scroller } from 'react-scroll'
+
 const Residence = () => {
+
+
+
     return (
         <Layout>
             <section

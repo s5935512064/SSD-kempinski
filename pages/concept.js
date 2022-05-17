@@ -1,13 +1,18 @@
 import Layout from "../components/Layout";
 import Head from "next/head";
 import Slider from "react-slick";
-import Link from "next/link";
+import Link2 from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Footer from "../components/Footer";
+import * as Scroll from 'react-scroll';
+import { Link, animateScroll as scroll, scroller } from 'react-scroll'
+
+
 
 
 const Concept = () => {
+
   var settings = {
     speed: 500,
     slidesToShow: 1,
@@ -17,6 +22,21 @@ const Concept = () => {
     infinite: true,
     fade: true,
   };
+
+  const checkClick = () => {
+    console.log("Clicked");
+  }
+
+  useEffect(() => {
+    const btn = document.getElementById("button");
+    setTimeout(() => {
+      if (window.scrollY <= 500) {
+        btn.click();
+      }
+    }, 5000)
+  })
+
+
   return (
     <Layout >
       <Head>
@@ -27,7 +47,7 @@ const Concept = () => {
 
       <section
         id="concept"
-        className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden bg-[url('/assets/concept/concept1.jpg')] bg-no-repeat bg-cover bg-top"
+        className="snap-start w-full h-[120vh] relative flex justify-center items-center overflow-hidden bg-[url('/assets/concept/concept1.jpg')] bg-no-repeat bg-cover bg-top"
       >
         <div className="w-full h-full bg-gradient-to-b from-black absolute opacity-75 " />
         <div className="max-w-7xl h-full w-full relative mx-4 md:mx-10 flex justify-center  ">
@@ -45,9 +65,37 @@ const Concept = () => {
           </p>
           <div></div>
         </div>
+
+        <Link
+          activeClass="active"
+          to="content"
+          spy={true}
+          smooth={true}
+          offset={-64}
+          duration={1000}
+        >
+
+          <button id="button" onClick={checkClick} className="arrow  cursor-pointer z-50 -translate-y-36">
+            <svg height="25" width="50" className="animate-bounce">
+
+              <polygon
+                points="0,0 25,10 50,0 25,25"
+                fill="#B6A694"
+                strokeWidth="0"
+                stroke="rgba(255,255,255,.3)"
+              />
+            </svg>
+
+            {/* <div className="progress-1 -translate-x-9 mt-5"></div> */}
+          </button>
+        </Link>
+
       </section>
 
-      <section id="content" className="snap-start h-screen w-full bg-[url('/assets/paper.jpg')] bg-cover bg-no-repeat bg-fixed relative ">
+
+
+
+      <section id="content" className="scroll-mt-16 snap-start h-screen w-full bg-[url('/assets/paper.jpg')] bg-cover bg-no-repeat bg-fixed relative ">
         <Slider {...settings} className="!w-full !h-screen bg-white ">
           <div id="part1" className="w-full h-screen overflow-hidden">
             <div className="grid grid-cols-2 w-full h-full">
@@ -159,7 +207,9 @@ const Concept = () => {
             </div>
           </div>
         </Slider>
+
       </section>
+
 
 
       <div className="bg-[#F5F1EA] w-full h-full pt-52">

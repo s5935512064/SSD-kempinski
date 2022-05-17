@@ -1,11 +1,63 @@
 import Layout from "../components/Layout";
 import Head from "next/head";
 import React, { useState, useEffect } from "react";
-
+import Footer from "../components/Footer";
+import { Link, animateScroll as scroll, scroller } from 'react-scroll'
 import { Fancybox, Carousel, Panzoom } from "@fancyapps/ui";
 
 
+
 const Gallery = () => {
+    const [openTab, setOpenTab] = useState(1);
+    const checkClick = () => {
+        console.log("Clicked");
+    }
+
+
+    useEffect(() => {
+        const btn = document.getElementById("button");
+        setTimeout(() => {
+            if (window.scrollY <= 500) {
+                btn.click();
+            }
+        }, 5000)
+    })
+
+
+
+    useEffect(() => {
+        Fancybox.bind('[data-fancybox="gallery"]', {
+            Carousel: {
+                on: {
+                    change: (that) => {
+                        mainCarousel.slideTo(mainCarousel.findPageForSlide(that.page), {
+                            friction: 0,
+                        });
+                    },
+                },
+            },
+        });
+
+        const mainCarousel = new Carousel(document.querySelector("#mainCarousel"), {
+            Dots: false,
+            friction: 0.96,
+            center: true,
+            slidesPerPage: 1,
+        });
+
+        const thumbCarousel = new Carousel(document.querySelector("#thumbCarousel"), {
+            Sync: {
+                target: mainCarousel,
+                friction: 0.96,
+            },
+            Dots: false,
+            Navigation: false,
+            center: true,
+            slidesPerPage: 1,
+            infinite: false,
+        });
+    })
+
 
     return (
         <Layout>
@@ -17,10 +69,10 @@ const Gallery = () => {
 
             <section
                 id="gallery"
-                className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden bg-[url('/assets/gallery/gallery.jpg')] bg-no-repeat bg-cover bg-center"
+                className="snap-start w-full h-[120vh] relative flex justify-center items-center overflow-hidden bg-[url('/assets/gallery/gallery.jpg')] bg-no-repeat bg-cover bg-center"
             >
                 <div className="w-full h-full bg-gradient-to-b from-black absolute opacity-30 " />
-                <div className="max-w-7xl h-full w-full relative mx-4 md:mx-10 flex justify-center  ">
+                <div className="max-w-7xl h-full w-full relative mx-4 md:mx-10 flex justify-center overflow-hidden  ">
                     <div className="mt-20 flex w-full absolute top-0">
                         <img
                             src="/assets/logo.svg"
@@ -33,9 +85,388 @@ const Gallery = () => {
                         LL
                         <span className="text-[90px] align-text-top">E</span>RY
                     </p>
-                    <div></div>
                 </div>
+
+                <Link
+                    activeClass="active"
+                    to="galleryContent"
+                    spy={true}
+                    offset={-64}
+                    smooth={true}
+                    duration={1000}
+                >
+
+                    <button id="button" onClick={checkClick} className="arrow  cursor-pointer z-40 -translate-y-36">
+                        <svg height="25" width="50" className="animate-bounce">
+
+                            <polygon
+                                points="0,0 25,10 50,0 25,25"
+                                fill="#fff"
+                                strokeWidth="0"
+                                stroke="rgba(255,255,255,.3)"
+                            />
+                        </svg>
+
+                        {/* <div className="progress-1 -translate-x-9 mt-5"></div> */}
+                    </button>
+                </Link>
             </section>
+
+            <section id="galleryContent" className="scroll-mt-16 snap-start w-full h-screen relative flex justify-center items-center overflow-hidden bg-[#F5F1EA] bg-fixed">
+                <div className="max-w-7xl w-full h-full p-10 flex items-center flex-col ">
+                    <fieldset className="md:w-[600px] border-t border-[#B5A191] text-center mb-5">
+                        <legend className="px-4 font-Libre">Explore The Residence at Sindhorn Kempinski</legend>
+                    </fieldset>
+
+                    <div className="w-full relative  h-full">
+                        <div className="flex flex-wrap">
+                            <div className="w-full">
+                                <ul
+                                    className="flex mb-0 list-none flex-wrap flex-row"
+                                    role="tablist"
+                                >
+                                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                        <a
+                                            className={
+                                                "text-xs md:text-base uppercase px-5 py-3  block leading-normal " +
+                                                (openTab === 1
+                                                    ? "text-black border-b-2 border-[#B5A191]"
+                                                    : "text-gray-500")
+                                            }
+                                            onClick={e => {
+                                                e.preventDefault();
+                                                setOpenTab(1);
+                                            }}
+                                            data-toggle="tab"
+                                            href="#link1"
+                                            role="tablist"
+                                        >
+                                            Interior
+                                        </a>
+                                    </li>
+                                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                        <a
+                                            className={
+                                                "text-xs md:text-base font-medium uppercase px-5 py-3  block leading-normal " +
+                                                (openTab === 2
+                                                    ? "text-black border-b-2 border-[#B5A191]"
+                                                    : "text-gray-500")
+                                            }
+                                            onClick={e => {
+                                                e.preventDefault();
+                                                setOpenTab(2);
+                                            }}
+                                            data-toggle="tab"
+                                            href="#link2"
+                                            role="tablist"
+                                        >
+                                            Exterior
+                                        </a>
+                                    </li>
+                                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                        <a
+                                            className={
+                                                "text-xs md:text-base font-medium uppercase px-5 py-3  block leading-normal " +
+                                                (openTab === 3
+                                                    ? "text-black border-b-2 border-[#B5A191]"
+                                                    : "text-gray-500")
+                                            }
+                                            onClick={e => {
+                                                e.preventDefault();
+                                                setOpenTab(3);
+                                            }}
+                                            data-toggle="tab"
+                                            href="#link3"
+                                            role="tablist"
+                                        >
+                                            Video
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div className="relative flex flex-col min-w-0 break-words w-full">
+                                    <div className="md:px-4 md:py-5 flex-auto overflow-hidden">
+                                        <div className="tab-content tab-space">
+                                            <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+                                                <div className="grid w-full h-full md:grid-cols-4">
+                                                    <div className="md:col-span-3">
+                                                        <div id="mainCarousel" className="carousel w-full h-full pt-1 px-1">
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="md:px-5">
+                                                        <div id="thumbCarousel" className="carousel ">
+
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                                                <div className="grid w-full h-full md:grid-cols-4">
+                                                    <div className="md:col-span-3">
+                                                        <div id="mainCarousel2" className="carousel w-full h-full pt-1 px-1">
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="md:px-5">
+                                                        <div id="thumbCarousel2" className="carousel ">
+
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                                                <div className="grid w-full h-full md:grid-cols-4">
+                                                    <div className="md:col-span-3">
+                                                        <div id="mainCarousel" className="carousel w-full h-full pt-1 px-1">
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg"
+                                                                data-fancybox="gallery"
+
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                            <div
+                                                                className="carousel__slide"
+                                                                data-src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg"
+                                                                data-fancybox="gallery"
+                                                            >
+                                                                <img data-lazy-src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg" className="object-cover h-full w-full object-center" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="md:px-5">
+                                                        <div id="thumbCarousel" className="carousel ">
+
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34400639/sindhorn-kempinski-hotel-bangkok_hotel_main_entrance.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394060/sindhorn-kempinski-hotel-bangkok_lobby_angle_3_final_high-res_16980.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394053/sindhorn-kempinski-hotel-bangkok_detail_lobby_01_high-res_16960.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34394919/sindhorn-kempinski-hotel-bangkok_flourish_restaurant_angle_2_final_original_17887.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34398972/sindhorn-kempinski-hotel-bangkok_grand_deluxe_king_room_angle_1920.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34393848/sindhorn-kempinski-hotel-bangkok_premier_residence_living_room_angle_1_final_high-res_16988.jpg" />
+                                                            </div>
+                                                            <div className="carousel__slide">
+                                                                <img className="panzoom__content object-cover" src="https://media.kempinski.com/34393876/sindhorn-kempinski-hotel-bangkok_2_bedroom_residence_suite_living_room_final_high-res_16957.jpg" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <div className="bg-[#F5F1EA] w-full h-full pt-52">
+                <Footer />
+            </div>
 
         </Layout>
     );

@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import Slider from "react-slick";
 import Footer from "../components/Footer";
+import React, { useState, useEffect } from "react";
+import { Link, animateScroll as scroll, scroller } from 'react-scroll'
 
 const Service = () => {
     var settings = {
@@ -25,6 +27,20 @@ const Service = () => {
         dots: true,
 
     };
+
+    const checkClick = () => {
+        console.log("Clicked");
+    }
+
+
+    useEffect(() => {
+        const btn = document.getElementById("button");
+        setTimeout(() => {
+            if (window.scrollY <= 500) {
+                btn.click();
+            }
+        }, 5000)
+    })
 
     return (
         <Layout>
@@ -52,14 +68,119 @@ const Service = () => {
                         RV
                         <span className="text-[90px] align-text-top">I</span>CE
                     </p>
-                    <div></div>
                 </div>
                 <div id="content" className="snap-start w-full h-[120vh] bg-white flex justify-center items-center absolute">
                     <Slider {...settings} className="!w-full !h-[120vh]  ">
                         <div className="w-full h-[120vh]  bg-[url('/assets/service/service1.jpg')] bg-cover bg-center bg-no-repeat" />
-
-
                     </Slider>
+                </div>
+
+                <Link
+                    activeClass="active"
+                    to="kempinService"
+                    spy={true}
+                    offset={-64}
+                    smooth={true}
+                    duration={1000}
+                >
+
+                    <button id="button" onClick={checkClick} className="arrow  cursor-pointer z-40 -translate-y-36">
+                        <svg height="25" width="50" className="animate-bounce">
+
+                            <polygon
+                                points="0,0 25,10 50,0 25,25"
+                                fill="#fff"
+                                strokeWidth="0"
+                                stroke="rgba(255,255,255,.3)"
+                            />
+                        </svg>
+
+                        {/* <div className="progress-1 -translate-x-9 mt-5"></div> */}
+                    </button>
+                </Link>
+
+            </section>
+
+
+
+            <section id="kempinService" className="snap-start w-full h-screen relative flex justify-center items-center  bg-[#B6A694] bg-fixed mb-4 ">
+                <div className="w-1/2 h-full absolute bg-[url('/assets/manifestobg-f.png')] bg-cover bg-no-repeat right-0 bg-left-top opacity-50">
+
+                </div>
+                <div className="max-w-7xl w-full h-full absolute ">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full h-full">
+                        <div className="grid grid-cols-2 content-center">
+                            <div className="w-52 h-52 md:w-80 md:h-96  p-2 ">
+                                <img src="assets/service/kempinski.jpg" alt="kempin" className="object-cover w-full h-full object-center" />
+                            </div>
+                            <div className="w-52 h-52 md:w-80 md:h-96 p-2 ">
+                                <img src="assets/service/kempinski4.jpg" alt="kempin" className="object-cover w-full h-full object-center" />
+                            </div>
+                            <div className="w-52 h-52 md:w-80 md:h-96  p-2">
+                                <img src="assets/service/kempinski3.jpg" alt="kempin" className="object-cover w-full h-full object-center" />
+                            </div>
+                            <div className="w-52 h-52 md:w-80 md:h-96  p-2">
+                                <img src="assets/service/kempinski2.jpg" alt="kempin" className="object-cover w-full h-full object-center" />
+                            </div>
+
+
+
+                        </div>
+                        <div className="w-full h-full flex flex-col justify-center items-center">
+                            <div className="w-full pl-20">
+                                <p className="pl-16 text-xs uppercase">serviced by</p>
+
+                                <img src="/assets/corp_logo_websit.svg" alt="kempinski" className="object-contain h-28 -translate-y-8 " />
+                            </div>
+                            <ul className="list-disc font-kingsCaslon -translate-y-12">
+                                <li>
+                                    Property management provided by Kempinski
+                                </li>
+                                <li>
+                                    24-hour Concierge/Reception
+                                </li>
+                                <li>
+                                    Doormen
+                                </li>
+                                <li>
+                                    Shuttle services
+                                </li>
+                                <li>
+                                    Security guards / 24-hour centralized TV surveillance systems
+                                </li>
+                                <li>
+                                    Fitness Trainer/ Masseuse
+                                </li>
+                                <li>
+                                    Trolley cart services
+                                </li>
+                                <li>
+                                    Local & International postage and shipping services
+                                </li>
+                                <li>
+                                    Tenancy services
+                                </li>
+                                <li>
+                                    Homecare program and maintenance services
+                                </li>
+                                <li>
+                                    Resident assistance services
+                                </li>
+                                <li>
+                                    Laundry (upon request with extra charge)
+                                </li>
+                                <li>
+                                    Housekeeping (upon request with extra charge)
+                                </li>
+                                <li>
+                                    Exclusive hotel services (upon request with extra charge)
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
                 </div>
 
             </section>
@@ -70,13 +191,8 @@ const Service = () => {
                 snap-start h-screen w-full bg-[url('/assets/paper.jpg')] bg-cover bg-no-repeat bg-fixed relative
                  flex justify-center items-center overflow-hidden mb-4"
             >
-                <div className="w-full h-52 absolute bottom-0 bg-white z-30 flex justify-center items-center">
-                    <p className="text-5xl text-[#B6A694]">GREEN SPACE</p>
 
-                </div>
-
-
-                <div id="content" className="snap-start w-full h-screen bg-white flex justify-center items-center absolute">
+                <div id="content" className="mb-96 snap-start w-full h-screen bg-white flex justify-center items-center absolute">
                     <Slider {...settings} className="!w-full !h-screen  ">
                         <div className="w-full h-screen  bg-[url('/assets/service/service2.jpg')] bg-cover bg-center bg-no-repeat" />
                         <div className="w-full h-screen  bg-[url('/assets/service/service3.jpg')] bg-cover bg-center bg-no-repeat" />
@@ -87,6 +203,11 @@ const Service = () => {
                     </Slider>
                 </div>
 
+                <div className="w-full h-52 absolute bottom-0 bg-white z-30 flex justify-center items-center">
+                    <p className="text-5xl text-[#B6A694]  font-semibold">GREEN SPACE</p>
+
+                </div>
+
             </section>
 
             <section
@@ -94,7 +215,7 @@ const Service = () => {
                 className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden mb-4"
             >
                 <div className="w-full h-52 absolute bottom-0  z-30 flex justify-center items-center">
-                    <p className="text-5xl text-white drop-shadow">RESIDENCE LOBBY</p>
+                    <p className="text-5xl text-white drop-shadow font-semibold">RESIDENCE LOBBY</p>
 
                 </div>
 
@@ -110,13 +231,12 @@ const Service = () => {
 
             </section>
 
-
             <section
                 id="service"
                 className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden mb-4"
             >
                 <div className="w-full h-52 absolute bottom-0  z-30 flex justify-center items-center">
-                    <p className="text-5xl text-white drop-shadow">RESIDENCE LOUNGE</p>
+                    <p className="text-5xl text-white drop-shadow  font-semibold">RESIDENCE LOUNGE</p>
 
                 </div>
 
@@ -156,7 +276,7 @@ const Service = () => {
                 className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden mb-4"
             >
                 <div className="w-full h-52 absolute bottom-0  z-30 flex justify-center items-center">
-                    <p className="text-5xl text-white drop-shadow">ROOFTOP SWIMMING POOL</p>
+                    <p className="text-5xl text-white drop-shadow  font-semibold">ROOFTOP SWIMMING POOL</p>
 
                 </div>
 
@@ -172,13 +292,12 @@ const Service = () => {
 
             </section>
 
-
             <section
                 id="service"
                 className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden "
             >
                 <div className="w-full h-52 absolute bottom-0  z-30 flex justify-center items-center">
-                    <p className="text-5xl text-white drop-shadow font-bold">FITNESS ROOM</p>
+                    <p className="text-5xl text-white drop-shadow  font-semibold">FITNESS ROOM</p>
 
                 </div>
 
@@ -194,11 +313,13 @@ const Service = () => {
 
             </section>
 
+
+
             <div className="bg-white w-full h-full pt-52">
                 <Footer />
             </div>
 
-        </Layout>
+        </Layout >
     );
 }
 

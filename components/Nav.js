@@ -36,9 +36,6 @@ const Nav = () => {
     setNavbarOpen(!navbarOpen);
   };
 
-  useEffect(() => {
-    console.log(hover);
-  });
 
   return (
     <>
@@ -46,8 +43,8 @@ const Nav = () => {
         <div className="max-w-7xl w-full hidden md:flex items-center relative  h-full ml-5">
           <div className="menu scale-125  absolute translate-y-1 z-30">
             <button
-              onMouseOver={handleMouseIn}
-              onMouseOut={handleMouseOut}
+              // onMouseOver={handleMouseIn}
+              // onMouseOut={handleMouseOut}
               id="hamburgerBtn2"
               className="menu-link"
             // onClick={handleToggle}
@@ -63,16 +60,16 @@ const Nav = () => {
 
         <div
           className={classNames(
-            hover ? "opacity-100" : "opacity-0 delay-[3000ms]",
+            hover ? "opacity-100" : "opacity-100",
             " w-full h-16 bg-[#010F2A] flex items-center justify-center absolute duration-200  z-20"
           )}
         >
           {listMenu.map((item, index) => (
-            <Link key={index} href={item.href}>
+            <Link key={index} href={item.href} scroll={false}>
               <p
                 className={
                   router.pathname === item.href
-                    ? "h-full px-4 items-center grid cursor-pointer uppercase text-[#B6A694]"
+                    ? "h-full px-4 items-center grid cursor-pointer uppercase text-[#B6A694] underline underline-offset-4  decoration-4"
                     : "grid h-full px-4 items-center cursor-pointer uppercase text-[#B6A694]"
                 }
               >
@@ -142,7 +139,7 @@ const Nav = () => {
 
         <div
           id="menu"
-          className={navbarOpen ? "menu open md:hidden" : "menu md:hidden"}
+          className={navbarOpen ? "menu open md:hidden " : "menu md:hidden "}
         >
           <span className="menu-circle"></span>
           <button
@@ -166,11 +163,11 @@ const Nav = () => {
               : "menu-overlay md:hidden"
           }
         >
-          <div className="absolute bg-[url('/assets/manifestobg.png')]  bg-left-bottom w-full bg-no-repeat h-full bg-contain opacity-10 -translate-x-20 translate-y-[450px]" />
-          <div className="overlay-info mt-56">
+          <div className="absolute bg-[url('/assets/manifestobg.png')]  bg-left-bottom w-full bg-no-repeat h-full bg-contain opacity-10 -translate-x-20 " />
+          <div className="overlay-info ">
             {/* <img src="/assets/logo.svg" alt="logo" className="w-32 h-32 object-contain !z-50" /> */}
 
-            <div className="space-y-1 flex h-full justify-center flex-col mt-56">
+            <div className="space-y-1 flex h-full justify-center flex-col ">
               <div className=" justify-items-center grid pb-10">
                 <img
                   src="/assets/logo.svg"
