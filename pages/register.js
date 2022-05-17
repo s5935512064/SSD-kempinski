@@ -53,7 +53,7 @@ const Register = () => {
                             Click submit button to download the brochure.
                         </p>
                         <p className="text-center">
-                            I don't have a permanent address in Thailand.
+                            I dont have a permanent address in Thailand.
                         </p>
 
                         <form action="">
