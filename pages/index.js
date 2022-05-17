@@ -51,9 +51,9 @@ export default function Home() {
     <Layout>
       <section
         id="hero"
-        className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden"
+        className="snap-start w-full h-[120vh] relative flex justify-center items-center overflow-hidden"
       >
-        <Slider {...settings} className="!w-full !h-screen overflow-hidden">
+        <Slider {...settings} className="!w-full !h-[120vh] overflow-hidden">
           <div>
             <img
               src="/assets/home/hero1.jpg"
@@ -82,8 +82,9 @@ export default function Home() {
             3
           </div> */}
         </Slider>
+
         <div className="w-full h-full bg-gradient-to-b from-[#010F2A] absolute opacity-75 " />
-        <div className="max-w-7xl h-full w-full flex flex-col items-center justify-center absolute translate-y-10">
+        <div className="max-w-7xl h-full w-full flex flex-col items-center justify-center absolute ">
           <img
             src="/assets/logo.svg"
             alt="logo"
@@ -341,6 +342,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
 
     </Layout>

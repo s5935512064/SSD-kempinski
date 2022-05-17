@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import Slider from "react-slick";
 import Footer from "../components/Footer";
+import React, { useState, useEffect } from "react";
+import { Link, animateScroll as scroll, scroller } from 'react-scroll'
 
 const Service = () => {
     var settings = {
@@ -26,162 +28,22 @@ const Service = () => {
 
     };
 
+    const checkClick = () => {
+        console.log("Clicked");
+    }
+
+
+    useEffect(() => {
+        const btn = document.getElementById("button");
+        setTimeout(() => {
+            if (window.scrollY <= 500) {
+                btn.click();
+            }
+        }, 5000)
+    })
+
     return (
         <Layout>
-<<<<<<< HEAD
-            <div className="h-full w-full  flex justify-center">
-
-                <div className="min-h-screen w-full h-full   max-w-7xl  py-10 relative mt-14 ">
-                    <section className="flex w-full flex-col justify-center items-center px-4 lg:px-10 text-white">
-                        <p className="text-center font-Libre text-3xl">Services and Facilities</p>
-                        <fieldset className="md:w-[600px] border-t border-[#B5A191] text-center mb-5">
-                            <legend className="px-4">The Residence at Sindhorn Kempinski</legend>
-                        </fieldset>
-                    </section>
-
-                    <div className="text-white grid grid-cols-1 md:grid-cols-2 mt-10 px-4 md:px-10 gap-10">
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" className="md:mr-10">
-
-                            <p className="font-Libre font-medium text-xl">CONCIERGE SERVICE</p>
-                            <fieldset className="w-full border-t border-[#B5A191] text-right text-lg font-medium ">
-                                <legend className="px-4 font-Libre">Making your stay memorable</legend>
-                            </fieldset>
-
-                            <p className="font-light text-sm">No matter how big or small your request, our concierge team is here to attend to your every need. Whether you need help arranging transport to or from the airport, or around the city for sightseeing, they should be your first port of call.
-
-                                No matter how big or small your request, our concierge team is here to attend to your every need. Whether you need help arranging transport to or from the airport, or around the city for sightseeing, they should be your first port of call.
-
-                                Celebrating an occasion while you’re here? Ask the concierge for help with any arrangements to make the day itself extra special, they’ll be delighted to assist.
-
-                                Visit the concierge in the reception area on the ground floor, or contact them directly by dialing ‘0’ from your room.</p>
-                        </div>
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" className="w-full h-full shadow ">
-                            <img src="/assets/emotional-people-shots_13007_original_original_5259.jpg" alt="CONCIERGE SERVICE" className="w-full min-h-[300px] object-contain object-center" />
-                        </div>
-                    </div>
-
-                    <div className="text-white grid grid-cols-1 md:grid-cols-2 mt-10 px-4 md:px-10 gap-10 ">
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" className="">
-                            <img src="/assets/sindhorn-kempinski-hotel-bangkok_travel-information.jpg" alt="LIMOUSINE SERVICE" className="w-full object-contain object-center mb-5" />
-                            <p className="font-Libre font-medium text-xl">LIMOUSINE SERVICE</p>
-                            <fieldset className="w-full border-t border-[#B5A191]  text-lg font-medium ">
-                                <legend className="pr-4 font-Libre">Travel in Style</legend>
-                            </fieldset>
-
-                            <p className="font-light text-sm">Chauffeur-driven limousines are available from the limousine desk. For more information, please contact the concierge desk or dial "0" from your room. </p>
-                        </div>
-
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" className="">
-
-                            <p className="font-Libre font-medium text-xl">LUGGAGE STORAGE</p>
-                            {/* <fieldset className="w-full border-t border-[#B5A191]  text-lg font-medium ">
-                                <legend className="pr-4">Travel in Style</legend>
-                            </fieldset> */}
-
-                            <p className="font-light text-sm">If you would like us to store your luggage while you are away from the hotel we are happy to do so. This service is complimentary for in-house guests but, due to obvious security reasons, limitations may apply. Please contact the concierge desk or dial '0' from your room. </p>
-                            <img src="/assets/kidxb3_bellboy_03_original_4010_2560.jpg" alt="LUGGAGE STORAGE" className="w-full object-contain object-center mt-5" />
-                        </div>
-                    </div>
-
-                    <div className="text-white grid grid-cols-1 md:grid-cols-2 mt-10 px-4 md:px-10 gap-10">
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" className="w-full h-full shadow md:mr-10 ">
-                            <img src="/assets/lady-in-red4.jpg" alt="LADY IN RED" className="w-full min-h-[300px] object-contain object-center" />
-                        </div>
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400" className="">
-
-                            <p className="font-Libre font-medium text-xl">LADY IN RED</p>
-                            <fieldset className="w-full border-t border-[#B5A191] text-right text-lg font-medium ">
-                                <legend className="px-4 font-Libre">Kempinski's brand ambassadors</legend>
-                            </fieldset>
-
-                            <p className="font-light text-sm">Our Kempinski brand ambassador – the elegant Lady in Red – will give you a warm welcome upon arrival, and be at your service throughout your stay, right up to your departure. A local expert, our Lady in Red can help with all manner of enquiries, helping to craft an unforgettable experience for every guest, tailored to your precise priorities and taste.
-
-                                Sightseeing tips, drinking and dining recommendations, travel arrangements – these are just a few of the things the Lady in Red can assist you with. Consider her a confidant during your visit – she can even elevate a special occasion with those finer details, so if you’re celebrating a big birthday with us, or arranging a surprise proposal, the Lady in Red will ensure everything runs smoothly.
-
-                                Instantly recognisable in their iconic scarlet attire, you can’t miss the Lady in Red in the hotel lobby.</p>
-                        </div>
-
-                    </div>
-
-                    <div className="text-white grid grid-cols-1 md:grid-cols-2 mt-10 px-4 md:px-10 gap-10">
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" className="w-full h-full shadow md:mr-10 ">
-                            <img src="/assets/kempinskiemeraldpalaceanov18-88_original_5245.jpg" alt="SHUTTLE SERVICE" className="w-full min-h-[300px] object-contain object-center" />
-                        </div>
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400" className="">
-
-                            <p className="font-Libre font-medium text-xl">SHUTTLE SERVICE</p>
-                            <fieldset className="w-full border-t border-[#B5A191] text-right text-lg font-medium ">
-                                <legend className="px-4 font-Libre">For your convenience</legend>
-                            </fieldset>
-
-                            <p className="font-light text-sm">For your comfort and enjoyment, we offer a complimentary shuttle service for guests, which runs between a selection of convenient locations.
-
-                                This service is able to transport guests from the hotel directly to Lumphini MRT Station, Chidlom BTS Station, Central Chidlom, Central Embassy, CentralWorld and Erawan Shrine.
-
-                                The shuttle departs for these popular destinations from 7:00 to 19:00. Advance reservation is required and subject to availability upon request. To book your place, or enquire about the times, you can call +66 (0) 2 095 9999 or get in touch by email via concierge.sindhornbangkok@kempinski.com.</p>
-                        </div>
-
-                    </div>
-
-                    <div className="text-white grid grid-cols-1  mt-10 px-4 md:px-10 gap-10">
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" className="w-full h-full shadow md:mr-10 ">
-                            <img src="/assets/sindhorn-kempinski-hotel-bangkok_executive_lounge_angle_2_final_original_17879.jpg" alt="EXECUTIVE LOUNGE" className="w-full min-h-[300px] object-contain object-center" />
-                        </div>
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400" className="">
-
-                            <p className="font-Libre font-medium text-xl">EXECUTIVE LOUNGE SERVICE AND BENEFITS</p>
-                            <fieldset className="w-full border-t border-[#B5A191] text-right text-lg font-medium ">
-                                <legend className="px-4 font-Libre">Intimate dining and lounge space</legend>
-                            </fieldset>
-
-                            <p className="font-light text-sm">The Executive Lounge on Floor 19 is a haven for relaxation that offers an intimate dining and lounge space exclusive to Club guests. Patrons have the benefit of a tailored breakfast that includes eggs made à la minute, free-flow refreshments throughout the day, and selected cocktails in the evening.</p>
-                            <p className="font-medium mt-2">Executive Club Benefits</p>
-                            <ul className="list-disc ml-10 font-light text-sm">
-                                <li>Inclusive of breakfast, high tea and evening cocktails*</li>
-                                <li>Personalised concierge service</li>
-                                <li>Personalised check in and check out</li>
-                                <li>All day snacks and refreshments from 11:00 to 21:00</li>
-                                <li>Complimentary VIP mini bar items</li>
-                                <li>Unlimited local calls (02 only)</li>
-                                <li>Complimentary local international newspapers and digital newspapers</li>
-                                <li>Complimentary pressing service 2 pieces per day (non-accumulative)</li>
-                                <li>Complimentary late checkout until 16:00, subject to availability </li>
-                                <li>10 percent discount on a-la-carte spa treatments</li>
-                                <li>20 percent discount on laundry service</li>
-                            </ul>
-                            <p className="font-light text-sm">*As per governmental law, alcohol will only be served to guests 20 years old and above. Proof of ID may be required for age verification. Guests under the age of 20 are not permitted to partake in the evening cocktails.</p>
-                        </div>
-
-
-
-                    </div>
-
-                    <div className="text-white grid grid-cols-1 md:grid-cols-2 mt-10 px-4 md:px-10 gap-10 ">
-                        <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" className="">
-                            <img src="/assets/sindhorn-wellness-by-resense_2-16.jpg" alt="WELLNESS CONCIERGE" className="w-full object-contain object-center mb-5" />
-                            <p className="font-Libre font-medium text-xl">WELLNESS CONCIERGE</p>
-                            <fieldset className="w-full border-t border-[#B5A191]  text-lg font-medium ">
-                                <legend className="pr-4 font-Libre">Personalised Care</legend>
-                            </fieldset>
-
-                            <p className="font-light text-sm">Our Wellness Concierge will help you plan your perfect visit; our Holistic Wellness Chef will prepare nutritionally balanced meals made with seasonal, whole foods; our Juice Butler will deliver a daily energy boost; and our team of nutritionists, yoga experts, exercise physiologists and other specialists unparalleled in the city will provide personalised integrative care.</p>
-                        </div>
-
-                        <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" className="">
-                            <img src="/assets/no-gear-no-excuse.jpg" alt="NO GEAR / NO EXCUSE" className="w-full object-contain object-center mb-5" />
-                            <p className="font-Libre font-medium text-xl">NO GEAR / NO EXCUSE</p>
-                            <fieldset className="w-full border-t border-[#B5A191]  text-lg font-medium ">
-                                <legend className="pr-4 font-Libre">Workout Clothes Hire</legend>
-                            </fieldset>
-
-                            <p className="font-light text-sm">Maintain a workout routine without the hassle of planning for it. We have created a solution of providing the essential workout gear for guests who want to continue their fitness regime but might not have the right attire. Guests can request the entire set of shorts, T-shirt, sports shoes and new socks or just individual items. After use, with the exception of the socks as guests can keep them, all items undergo an intensive hot-water washing process, and shoes go through disinfection. Now there is no more excuse to skip a workout.</p>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-=======
             <Head>
                 <title>Service - Residence Kimpinski</title>
                 <meta name="description" content="Generated by create next app" />
@@ -206,14 +68,119 @@ const Service = () => {
                         RV
                         <span className="text-[90px] align-text-top">I</span>CE
                     </p>
-                    <div></div>
                 </div>
                 <div id="content" className="snap-start w-full h-[120vh] bg-white flex justify-center items-center absolute">
                     <Slider {...settings} className="!w-full !h-[120vh]  ">
                         <div className="w-full h-[120vh]  bg-[url('/assets/service/service1.jpg')] bg-cover bg-center bg-no-repeat" />
-
-
                     </Slider>
+                </div>
+
+                <Link
+                    activeClass="active"
+                    to="kempinService"
+                    spy={true}
+                    offset={-64}
+                    smooth={true}
+                    duration={1000}
+                >
+
+                    <button id="button" onClick={checkClick} className="arrow  cursor-pointer z-40 -translate-y-36">
+                        <svg height="25" width="50" className="animate-bounce">
+
+                            <polygon
+                                points="0,0 25,10 50,0 25,25"
+                                fill="#fff"
+                                strokeWidth="0"
+                                stroke="rgba(255,255,255,.3)"
+                            />
+                        </svg>
+
+                        {/* <div className="progress-1 -translate-x-9 mt-5"></div> */}
+                    </button>
+                </Link>
+
+            </section>
+
+
+
+            <section id="kempinService" className="snap-start w-full h-screen relative flex justify-center items-center  bg-[#B6A694] bg-fixed mb-4 ">
+                <div className="w-1/2 h-full absolute bg-[url('/assets/manifestobg-f.png')] bg-cover bg-no-repeat right-0 bg-left-top opacity-50">
+
+                </div>
+                <div className="max-w-7xl w-full h-full absolute ">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full h-full">
+                        <div className="grid grid-cols-2 content-center">
+                            <div className="w-52 h-52 md:w-80 md:h-96  p-2 ">
+                                <img src="assets/service/kempinski.jpg" alt="kempin" className="object-cover w-full h-full object-center" />
+                            </div>
+                            <div className="w-52 h-52 md:w-80 md:h-96 p-2 ">
+                                <img src="assets/service/kempinski4.jpg" alt="kempin" className="object-cover w-full h-full object-center" />
+                            </div>
+                            <div className="w-52 h-52 md:w-80 md:h-96  p-2">
+                                <img src="assets/service/kempinski3.jpg" alt="kempin" className="object-cover w-full h-full object-center" />
+                            </div>
+                            <div className="w-52 h-52 md:w-80 md:h-96  p-2">
+                                <img src="assets/service/kempinski2.jpg" alt="kempin" className="object-cover w-full h-full object-center" />
+                            </div>
+
+
+
+                        </div>
+                        <div className="w-full h-full flex flex-col justify-center items-center">
+                            <div className="w-full pl-20">
+                                <p className="pl-16 text-xs uppercase">serviced by</p>
+
+                                <img src="/assets/corp_logo_websit.svg" alt="kempinski" className="object-contain h-28 -translate-y-8 " />
+                            </div>
+                            <ul className="list-disc font-kingsCaslon -translate-y-12">
+                                <li>
+                                    Property management provided by Kempinski
+                                </li>
+                                <li>
+                                    24-hour Concierge/Reception
+                                </li>
+                                <li>
+                                    Doormen
+                                </li>
+                                <li>
+                                    Shuttle services
+                                </li>
+                                <li>
+                                    Security guards / 24-hour centralized TV surveillance systems
+                                </li>
+                                <li>
+                                    Fitness Trainer/ Masseuse
+                                </li>
+                                <li>
+                                    Trolley cart services
+                                </li>
+                                <li>
+                                    Local & International postage and shipping services
+                                </li>
+                                <li>
+                                    Tenancy services
+                                </li>
+                                <li>
+                                    Homecare program and maintenance services
+                                </li>
+                                <li>
+                                    Resident assistance services
+                                </li>
+                                <li>
+                                    Laundry (upon request with extra charge)
+                                </li>
+                                <li>
+                                    Housekeeping (upon request with extra charge)
+                                </li>
+                                <li>
+                                    Exclusive hotel services (upon request with extra charge)
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
                 </div>
 
             </section>
@@ -224,13 +191,8 @@ const Service = () => {
                 snap-start h-screen w-full bg-[url('/assets/paper.jpg')] bg-cover bg-no-repeat bg-fixed relative
                  flex justify-center items-center overflow-hidden mb-4"
             >
-                <div className="w-full h-52 absolute bottom-0 bg-white z-30 flex justify-center items-center">
-                    <p className="text-5xl text-[#B6A694]">GREEN SPACE</p>
 
-                </div>
-
-
-                <div id="content" className="snap-start w-full h-screen bg-white flex justify-center items-center absolute">
+                <div id="content" className="mb-96 snap-start w-full h-screen bg-white flex justify-center items-center absolute">
                     <Slider {...settings} className="!w-full !h-screen  ">
                         <div className="w-full h-screen  bg-[url('/assets/service/service2.jpg')] bg-cover bg-center bg-no-repeat" />
                         <div className="w-full h-screen  bg-[url('/assets/service/service3.jpg')] bg-cover bg-center bg-no-repeat" />
@@ -241,6 +203,11 @@ const Service = () => {
                     </Slider>
                 </div>
 
+                <div className="w-full h-52 absolute bottom-0 bg-white z-30 flex justify-center items-center">
+                    <p className="text-5xl text-[#B6A694]  font-semibold">GREEN SPACE</p>
+
+                </div>
+
             </section>
 
             <section
@@ -248,7 +215,7 @@ const Service = () => {
                 className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden mb-4"
             >
                 <div className="w-full h-52 absolute bottom-0  z-30 flex justify-center items-center">
-                    <p className="text-5xl text-white drop-shadow">RESIDENCE LOBBY</p>
+                    <p className="text-5xl text-white drop-shadow font-semibold">RESIDENCE LOBBY</p>
 
                 </div>
 
@@ -264,13 +231,12 @@ const Service = () => {
 
             </section>
 
-
             <section
                 id="service"
                 className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden mb-4"
             >
                 <div className="w-full h-52 absolute bottom-0  z-30 flex justify-center items-center">
-                    <p className="text-5xl text-white drop-shadow">RESIDENCE LOUNGE</p>
+                    <p className="text-5xl text-white drop-shadow  font-semibold">RESIDENCE LOUNGE</p>
 
                 </div>
 
@@ -310,7 +276,7 @@ const Service = () => {
                 className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden mb-4"
             >
                 <div className="w-full h-52 absolute bottom-0  z-30 flex justify-center items-center">
-                    <p className="text-5xl text-white drop-shadow">ROOFTOP SWIMMING POOL</p>
+                    <p className="text-5xl text-white drop-shadow  font-semibold">ROOFTOP SWIMMING POOL</p>
 
                 </div>
 
@@ -326,13 +292,12 @@ const Service = () => {
 
             </section>
 
-
             <section
                 id="service"
                 className="snap-start w-full h-screen relative flex justify-center items-center overflow-hidden "
             >
                 <div className="w-full h-52 absolute bottom-0  z-30 flex justify-center items-center">
-                    <p className="text-5xl text-white drop-shadow font-bold">FITNESS ROOM</p>
+                    <p className="text-5xl text-white drop-shadow  font-semibold">FITNESS ROOM</p>
 
                 </div>
 
@@ -348,12 +313,13 @@ const Service = () => {
 
             </section>
 
+
+
             <div className="bg-white w-full h-full pt-52">
                 <Footer />
             </div>
 
->>>>>>> dev
-        </Layout>
+        </Layout >
     );
 }
 
